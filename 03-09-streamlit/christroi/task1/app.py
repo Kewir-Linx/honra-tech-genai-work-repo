@@ -38,9 +38,10 @@ with tab_form:
         submit_button = st.form_submit_button("Generate Response")
 
     if submit_button:
-        st.error(
-                "Please enter both your name and prompt instructions."
-            ) # TODO 1: Check if user_name or prompt_text is empty (strip whitespace), and show st.error() if empty.
+        if not user_name or not prompt_text:
+            st.error(
+                    "Please enter both your name and prompt instructions."
+                ) # TODO 1: Check if user_name or prompt_text is empty (strip whitespace), and show st.error() if empty.
         
         # TODO 2: Complete the simulation progress loop below so the progress bar advances from 1 to 100.
         st.info("AI is crafting your response...")
